@@ -1,8 +1,12 @@
 <h1>AjaxApp</h1>
   <%= form_with url: "/posts", method: :post,id: "form" do |form| %>
-  <%= form.text_field :content %>
+  <%# content取得のために %>
+  <%= form.text_field :content  , id: "content" %>
   <%= form.submit '投稿する' , id: "submit" %>
 <% end %>
+
+<div id="list">
+</div>
 <% @posts.each do |post| %>
   <%# この部分を「クリックした時」にイベント発火させたい %>
   <div class="post" data-id=<%= post.id %> data-check=<%= post.checked %>>
